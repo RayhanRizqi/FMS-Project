@@ -1,4 +1,6 @@
 // Click and Drag an object
+let sound;
+let lose;
 let shape1;
 let shape2;
 let shape3;
@@ -16,9 +18,8 @@ function setup(){
   room2 = new rect2(150,160,60,60);
   room3 = new rect3(40,250,60,60);
   room4 = new rect4(150,250,60,60);
-  
-  
-  
+  sound = loadSound("Correct.mp3");
+  lose = loadSound("Lose.mp3")
 }
 
 var scoreAdded1 = false;
@@ -27,11 +28,13 @@ var scoreAdded3 = false;
 var scoreAdded4 = false;
 
 function draw() {
-  background("black")
+  background("grey")
   
   fill('white');
   textSize(24);
   text("Score: " + score, 10, 25);
+  
+  //sound effect 
   
 //collision 
   
@@ -40,6 +43,7 @@ function draw() {
     if ( d1 < 10 && !scoreAdded1) {
      score += 5;
       scoreAdded1 = true;
+      sound.play();
     }
 }
     var d2 = dist(room2.x, room2.y,shape2.x,shape2.y);
@@ -47,6 +51,7 @@ function draw() {
     if ( d2 < 10 && !scoreAdded2) {
      score += 5;
       scoreAdded2 = true;
+      sound.play();
     }
 }
     var d3 = dist(room3.x, room3.y,shape3.x,shape3.y);
@@ -54,6 +59,7 @@ function draw() {
     if ( d3 < 10 && !scoreAdded3) {
      score += 5;
       scoreAdded3 = true;
+      sound.play();
     }
 }
   
@@ -62,6 +68,7 @@ function draw() {
     if ( d4 < 10 && !scoreAdded4) {
      score += 5;
       scoreAdded4 = true;
+      sound.play();
     }
 }
   
@@ -70,11 +77,11 @@ function draw() {
   
   // roof
   stroke(0);
-  fill('brown');
+  fill('gold');
   triangle(25, 150, 225, 152, 130, 50);
   
   // house
-  fill('gray');
+  fill('brown');
   rect(25,150,199,200);
   
   // Rooms
@@ -102,7 +109,7 @@ function draw() {
   rect(310,320, 30, 10)
   
   //parking Lot
-  fill('grey')
+  fill('orange')
   rect(360, 200, 120, 260)
   
   // sun
@@ -440,3 +447,5 @@ function rect4(x,y,w,h){
   rect(this.x,this.y,this.w,this.h);
 }
 }
+
+
