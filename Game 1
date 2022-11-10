@@ -7,6 +7,7 @@ let shape3;
 let shape4;
 var score = 0;
 var i = 0;
+let txt = 'Congratulations!';
 
 function setup(){
   createCanvas(500,500)
@@ -71,6 +72,13 @@ function draw() {
       sound.play();
     }
 }
+
+if (score== 20){
+    fill('blue')
+    text(txt, 200, 50 , 70, 80);
+    gameComplete = true;
+    
+  }
   
   
   //House below 
